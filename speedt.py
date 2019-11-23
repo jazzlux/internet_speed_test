@@ -23,6 +23,7 @@ def speed_test():
     s.results.share()
 
     results_dict = s.results.dict()
+    #bits/s
 
     return results_dict
 
@@ -30,12 +31,11 @@ def save_result(file_name):
     results = {}
 
     data = speed_test()
-    #in_mb = 0.145
-    in_mb = data['download']/8000000
-    up_mb = data['upload']/8000000
-    in_kb = data['download']/1024
-    print('MBps is {0:.3f}'.format(in_mb))
-    print('KBps is {0:.3f}'.format(up_mb))
+
+    in_mb = data['download']/1000000
+    up_mb = data['upload']/1000000
+    print('Mbps is {0:.3f}'.format(in_mb))
+    print('Kbps is {0:.3f}'.format(up_mb))
     timestamp = datetime.datetime.now()
     t = timestamp.strftime("%m/%d/%Y %H:%M:%S")
 
